@@ -14,13 +14,11 @@ def make_line(result_image):#枠線
     line = round(0.002 + max(result_image.shape[0:2])) + 1
     return line
 
-def draw_lines(c1, c2, result_image, line, color):
-    """枠線を追記"""
+def draw_lines(c1, c2, result_image, line, color):#枠線の追記
     cv2.rectangle(result_image, c1, c2, color, thickness=line)
 
 
-def draw_texts(result_image, line, c1, color, display_txt):
-    """検知したテキストラベルを画像に追記"""
+def draw_texts(result_image, line, c1, color, display_txt):#検知したラベルを画像に追記
     # テキストサイズの取得
     font = max(line - 1, 1)
     t_size = cv2.getTextSize(display_txt, 0, fontScale=line / 3, thickness=font)[0]
